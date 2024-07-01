@@ -1,0 +1,36 @@
+version: '3.4'
+
+services:
+  fepycadb:
+    container_name: fepycadb
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      SA_PASSWORD: "Your_password123"
+      ACCEPT_EULA: "Y"
+    restart: always
+    volumes:
+      - ./.containers/database:/var/opt/mssql/data
+    ports:
+      - "1433:1433"
+
+  fepycaapi:
+    container_name: fepycaapi
+    #Aqui se sobrescriven las variables de entorno y el conecction string
+    environment:
+      # Aqui en "ASPNETCORE_ENVIRONMENT=DockerDebug" se sobrescribe la variable de entorno y 
+      # esta directamente relacionado con el archivo appsettings.DockerDebug.json
+      - ASPNETCORE_ENVIRONMENT=DockerDebug 
+      - ASPNETCORE_URLS=http://+:5000
+      - ConnectionStrings__SqlServerConnection=Server=fepycadb,1433;Database=FepyCaDb;User Id=sa;Password=Your_password123;Encrypt=False;
+    depends_on:
+      - fepycadb
+    ports:
+      - "81:5000"
+
+  serilogseq:
+    container_name: serilogseq
+    environment:
+      - ACCEPT_EULA=Y
+    ports:
+      - "5341:5341"
+      - "8081:80"

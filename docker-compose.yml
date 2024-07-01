@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  fepycadb:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+
+  fepycaapi:
+    image: ${DOCKER_REGISTRY-}fepycaapi
+    build:
+      context: .
+      dockerfile: backend/src/Fepy.Api/Dockerfile
+  
+  serilogseq:
+    image: datalust/seq:2024.3
