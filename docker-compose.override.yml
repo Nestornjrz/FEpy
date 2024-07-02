@@ -11,7 +11,7 @@ services:
     volumes:
       - ./.containers/database:/var/opt/mssql/data
     ports:
-      - "1433:1433"
+      - "1434:1433"
 
   fepycaapi:
     container_name: fepycaapi
