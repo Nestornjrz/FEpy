@@ -160,12 +160,36 @@ namespace FEpy.Infrastructure.Migrations
                     b.Property<int>("Id")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TipoDeMovimientoId1")
+                    b.Property<Guid>("DepositoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("MercaderiaId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Observacion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("SocioDeNegocioId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("TipoDeMovimientoId")
                         .HasColumnType("int");
+
+                    b.Property<string>("UnidadDeMedida")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("Valor")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TipoDeMovimientoId1");
+                    b.HasIndex("DepositoId");
+
+                    b.HasIndex("MercaderiaId");
+
+                    b.HasIndex("SocioDeNegocioId");
+
+                    b.HasIndex("TipoDeMovimientoId");
 
                     b.ToTable("Movimiento");
                 });
@@ -371,9 +395,35 @@ namespace FEpy.Infrastructure.Migrations
 
             modelBuilder.Entity("FEpy.Domain.Entities.Movimientos.Movimiento", b =>
                 {
+                    b.HasOne("FEpy.Domain.Entities.Depositos.Deposito", "Deposito")
+                        .WithMany()
+                        .HasForeignKey("DepositoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FEpy.Domain.Entities.Mercaderias.Mercaderia", "Mercaderia")
+                        .WithMany()
+                        .HasForeignKey("MercaderiaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FEpy.Domain.Entities.SociosDeNegocios.SocioDeNegocio", "SocioDeNegocio")
+                        .WithMany()
+                        .HasForeignKey("SocioDeNegocioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("FEpy.Domain.Entities.TiposDeMovimientos.TipoDeMovimiento", "TipoDeMovimiento")
                         .WithMany()
-                        .HasForeignKey("TipoDeMovimientoId1");
+                        .HasForeignKey("TipoDeMovimientoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Deposito");
+
+                    b.Navigation("Mercaderia");
+
+                    b.Navigation("SocioDeNegocio");
 
                     b.Navigation("TipoDeMovimiento");
                 });

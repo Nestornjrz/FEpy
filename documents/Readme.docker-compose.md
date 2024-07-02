@@ -13,11 +13,18 @@ services:
   warrantcaapi:
     # Es una variable de entorno del bash
     # se puede ver usando el comando `echo $DOCKER_REGISTRY`
+<<<<<<< HEAD
     image: ${DOCKER_REGISTRY-}fepycaapi
     build:
       context: .
       dockerfile: backend/src/FEpy.Api/Dockerfile
+=======
+    image: ${DOCKER_REGISTRY-}warrantcaapi
+    build:
+      context: .
+      dockerfile: backend/src/Warrant.Api/Dockerfile
+>>>>>>> 8f905cb80c4e5ede575537734738c63479285d5d
   
-  serilogseq:
+  serilogseqfepy:
     image: datalust/seq:latest
 ```

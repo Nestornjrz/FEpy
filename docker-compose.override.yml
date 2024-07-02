@@ -27,8 +27,8 @@ services:
     ports:
       - "81:5000"
 
-  serilogseq:
-    container_name: serilogseq
+  serilogseqfepy:
+    container_name: serilogseqfepy
     environment:
       - ACCEPT_EULA=Y
     ports:

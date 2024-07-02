@@ -10,5 +10,5 @@ services:
       context: .
       dockerfile: backend/src/Fepy.Api/Dockerfile
   
-  serilogseq:
+  serilogseqfepy:
     image: datalust/seq:2024.3

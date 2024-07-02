@@ -3,6 +3,7 @@ using FEpy.Domain.Entities.Depositos;
 using FEpy.Domain.Entities.Mercaderias;
 using FEpy.Domain.Entities.TiposDeMovimientos;
 using FEpy.Domain.Entities.Movimientos.Events;
+using FEpy.Domain.Entities.SociosDeNegocios;
 
 namespace FEpy.Domain.Entities.Movimientos
 {
@@ -44,7 +45,10 @@ namespace FEpy.Domain.Entities.Movimientos
         public UnidadDeMedida? UnidadDeMedida { get; }
 
         #region NAVEGACION
-        public TipoDeMovimiento? TipoDeMovimiento { get; private set; }
+        public Deposito? Deposito { get; }
+        public SocioDeNegocio? SocioDeNegocio { get; }
+        public Mercaderia? Mercaderia { get; private set; }
+        public TipoDeMovimiento? TipoDeMovimiento { get; }
         #endregion
 
         public static Movimiento Create(

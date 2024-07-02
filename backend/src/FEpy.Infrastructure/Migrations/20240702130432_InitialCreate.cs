@@ -123,23 +123,6 @@ namespace FEpy.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Movimiento",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false),
-                    TipoDeMovimientoId1 = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Movimiento", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Movimiento_TiposDeMovimientos_TipoDeMovimientoId1",
-                        column: x => x.TipoDeMovimientoId1,
-                        principalTable: "TiposDeMovimientos",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Depositos",
                 columns: table => new
                 {
@@ -233,6 +216,48 @@ namespace FEpy.Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Movimiento",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    DepositoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SocioDeNegocioId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    MercaderiaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TipoDeMovimientoId = table.Column<int>(type: "int", nullable: false),
+                    Observacion = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Valor = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    UnidadDeMedida = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Movimiento", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Movimiento_Depositos_DepositoId",
+                        column: x => x.DepositoId,
+                        principalTable: "Depositos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Movimiento_Mercaderias_MercaderiaId",
+                        column: x => x.MercaderiaId,
+                        principalTable: "Mercaderias",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Movimiento_SociosDeNegocios_SocioDeNegocioId",
+                        column: x => x.SocioDeNegocioId,
+                        principalTable: "SociosDeNegocios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Movimiento_TiposDeMovimientos_TipoDeMovimientoId",
+                        column: x => x.TipoDeMovimientoId,
+                        principalTable: "TiposDeMovimientos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "TiposDeMovimientos",
                 columns: new[] { "Id", "NombreTipoMovimiento" },
@@ -304,9 +329,24 @@ namespace FEpy.Infrastructure.Migrations
                 filter: "[NombreMercaderia] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Movimiento_TipoDeMovimientoId1",
+                name: "IX_Movimiento_DepositoId",
                 table: "Movimiento",
-                column: "TipoDeMovimientoId1");
+                column: "DepositoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Movimiento_MercaderiaId",
+                table: "Movimiento",
+                column: "MercaderiaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Movimiento_SocioDeNegocioId",
+                table: "Movimiento",
+                column: "SocioDeNegocioId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Movimiento_TipoDeMovimientoId",
+                table: "Movimiento",
+                column: "TipoDeMovimientoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_SociosDeNegocios_Ruc",
@@ -352,10 +392,10 @@ namespace FEpy.Infrastructure.Migrations
                 name: "Inspectores");
 
             migrationBuilder.DropTable(
-                name: "Mercaderias");
+                name: "Depositos");
 
             migrationBuilder.DropTable(
-                name: "Depositos");
+                name: "Mercaderias");
 
             migrationBuilder.DropTable(
                 name: "SociosDeNegocios");
