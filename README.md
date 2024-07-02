@@ -53,3 +53,11 @@ los comandos o configuraciones que se han usado para crear la aplicacion.
 |[Github](documents/Readme.Git.md)| Comandos relacionados a Git |
 |[DockerCompose](documents/Readme.DockerCompose.md)| Explicacion del docker-compose.yml |
 |[WSL2](documents/Readme.Wsl.md)| Comandos relacionados a WSL2 |
+
+>[!IMPORTANT]
+>En la capa de dominio, las entidades que coloque son de ejemplo,
+no estan todavia relacionadas a la Facturación electrónica.
+Los coloque para que se vea como funciona la arquitectura limpia en lo que respecta
+a las entidades (Que se transforman en tablas al migrar).
+Asi se puede ver donde estan las entidades (CAPA DE DOMINIO) y las configuraciones 
+de las entidades (CAPA DE INFRAESTRUCTURA)
