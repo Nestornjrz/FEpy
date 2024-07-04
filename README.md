@@ -36,7 +36,7 @@ dotnet run --project .\FEpy.Api.csproj
 ```
 
 >[!NOTE]
-> Puedes ir a la appsettings.json de la capa de presentacion es decir en `backend\src\Warrant.Api\appsettings.json`
+> Puedes ir a la appsettings.json de la capa de presentacion es decir en `backend\src\FEpy.Api\appsettings.json`
 para ver el nombre de la cadena de conexion y cambiarlo si es necesario.
 
 Si tienes Docker y tienes activado el WSL2
