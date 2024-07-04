@@ -22,6 +22,12 @@
 	  - FluentAssertions
 	  - Bogus
 
+# Explicación sobre la estructura de la aplicación en video
+<a href="https://www.youtube.com/watch?v=feQBH8A6aV0">
+  <img src="https://img.youtube.com/vi/feQBH8A6aV0/maxresdefault.jpg" alt="Nombre del video" width="440" height="335">
+</a>
+
+
 # COMO ARRANCAR
 Si tienes una instancia de SQL Server en tu maquina local.
 Ejecuta el siguiente comando en la Raiz del FEpy.Api
