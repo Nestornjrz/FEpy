@@ -17,6 +17,11 @@ builder.Services.AddOtherServicesToContainer(builder.Configuration);
 
 var app = builder.Build();
 
+// Obtener el ILogger
+var logger = app.Services.GetRequiredService<ILogger<Program>>();
+// Loguear el entorno actual
+logger.LogInformation("Starting application in {Environment} environment", app.Environment.EnvironmentName);
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment() || app.Environment.IsEnvironment("DockerDebug"))
 {
