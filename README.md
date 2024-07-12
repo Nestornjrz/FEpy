@@ -6,7 +6,7 @@
   - [Application](backend/src/FEpy.Application/Readme.md)
   - [Infrastructure](backend/src/FEpy.Infrastructure/Readme.md)
   - [WebApi](backend/src/FEpy.Api/Readme.md)
-- En esta aplicacion se utiliza principalemente tecnologias de Microsoft
+- En esta aplicación se utiliza principalmente tecnologías de Microsoft
 	- [.NET](https://dotnet.microsoft.com/es-es/) 8
 	- [.AspNet Core](https://learn.microsoft.com/es-es/aspnet/core/?view=aspnetcore-8.0&WT.mc_id=dotnet-35129-website) 8
 	- Paquetes nuget
