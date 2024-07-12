@@ -23,7 +23,7 @@
 
 # Explicación sobre la estructura de la aplicación en video
 <a href="https://www.youtube.com/watch?v=feQBH8A6aV0">
-  <img src="https://img.youtube.com/vi/feQBH8A6aV0/maxresdefault.jpg" alt="Nombre del video" width="440" height="335">
+  <img src="https://img.youtube.com/vi/feQBH8A6aV0/maxresdefault.jpg" alt="Nombre del video" width="640" height="335">
 </a>
 
 
