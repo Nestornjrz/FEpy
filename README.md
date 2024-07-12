@@ -9,9 +9,8 @@
 - En esta aplicación se utiliza principalmente tecnologías de Microsoft
 	- [.NET](https://dotnet.microsoft.com/es-es/) 8
 	- [.AspNet Core](https://learn.microsoft.com/es-es/aspnet/core/?view=aspnetcore-8.0&WT.mc_id=dotnet-35129-website) 8
-	- Paquetes nuget
+	- Algunos paquetes nuget que utiliza
 	  - Entity Framework Core
-	  - SQL Server
 	  - Swagger
 	  - AutoMapper
 	  - FluentValidation
