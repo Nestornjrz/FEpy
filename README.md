@@ -46,9 +46,9 @@ docker compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
 
 # Tabla de Contenido
 
-Esta tabla es un indice de los documentos que se encuentran en la carpeta `documents`
-con esto pretendo que sea mas facil encontrar la informacion que se necesita y 
-los comandos o configuraciones que se han usado para crear la aplicacion.
+Esta tabla es un índice de los documentos que se encuentran en la carpeta `documents` con
+esto pretendo que sea más fácil encontrar la información que se necesita y los comandos
+o configuraciones que se han usado para crear la aplicación.
 
 | README       | DESCRIPCION |
 |--------------|--------------|
