@@ -61,8 +61,6 @@ o configuraciones que se han usado para crear la aplicación.
 
 >[!IMPORTANT]
 >En la capa de dominio, las entidades que coloque son de ejemplo,
-no estan todavia relacionadas a la Facturación electrónica.
-Los coloque para que se vea como funciona la arquitectura limpia en lo que respecta
-a las entidades (Que se transforman en tablas al migrar).
-Asi se puede ver donde estan las entidades (CAPA DE DOMINIO) y las configuraciones 
-de las entidades (CAPA DE INFRAESTRUCTURA)
+no están todavía relacionadas a la Facturación electrónica.
+Los coloque para que se vea cómo funciona la arquitectura limpia en lo que respecta a las entidades (Que se transforman en tablas al migrar).
+Así se puede ver dónde están las entidades (CAPA DE DOMINIO) y las configuraciones de las entidades (CAPA DE INFRAESTRUCTURA)
